@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ratingsapi-hpa
+  namespace: ash-workshop-dev
+spec:
+  scaleTargetRef:  
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ratingsapi-deploy
+  minReplicas: 1
+  maxReplicas: 50
+  targetCPUUtilizationPercentage: 60

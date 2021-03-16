@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: aksengine-ingress
+  namespace: aks-engine-workshop-dev
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+spec:
+  tls:
+  - hosts:
+    - "*.internal.wkshpdev.com"
+    secretName: aks-engine-tls-secret
+  rules:
+  - host: aks-engine-workshop-dev.internal.wkshpdev.com
+    http:
+      paths:
+      - path: /?(.*)
+        backend:
+          serviceName: nginx-svc
+          servicePort: 80
+

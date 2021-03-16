@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "ashVNetName": {
+        "type": "string"
+      },
+      "ashVNetPrefix": {
+        "type": "string"
+      },      
+      "ashSubnetName": {
+        "type": "string"
+      },
+      "ashSubnetPrefix": {
+        "type": "string"
+      },      
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+      }
+    },
+    "variables": {},
+    "resources": [
+      {
+        "apiVersion": "2018-10-01",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[parameters('ashVNetName')]",
+        "location": "[parameters('location')]",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "[parameters('ashVNetPrefix')]"
+            ]
+          }
+        },
+        "resources": [          
+          {
+            "apiVersion": "2018-10-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('ashSubnetName')]",
+            "dependsOn": [
+              "[parameters('ashVNetName')]"              
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('ashSubnetPrefix')]"
+            }
+          }                  
+        ]
+      }
+    ]
+  }
+  

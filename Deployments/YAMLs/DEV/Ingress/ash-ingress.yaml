@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ash-workshop-ingress
+  namespace: ash-workshop-dev
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+spec:  
+  rules:
+  - host: 10.11.143.48.nip.io
+    http:
+      paths:
+      - path: /nginx/?(.*)
+        backend:
+          serviceName: nginx-svc
+          servicePort: 80
+      - path: /?(.*)
+        backend:
+          serviceName: ratingsweb-service
+          servicePort: 80
+      - path: /bkend/?(.*)
+        backend:
+          serviceName: ratingsapi-service
+          servicePort: 80
+

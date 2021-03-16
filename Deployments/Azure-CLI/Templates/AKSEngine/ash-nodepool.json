@@ -1,0 +1,10 @@
+{
+  "name": "ashiotpool",
+  "count": 2,
+  "vmSize": "Standard_DS2_v2",
+  "distro": "aks-ubuntu-16.04",
+  "osType": "Linux",
+  "availabilityProfile": "AvailabilitySet",
+  "storageProfile": "ManagedDisks",
+  "vnetSubnetID": "/subscriptions/f581d2c5-6e46-41b1-a965-47588f4b857a/resourceGroups/ash-workshop-rg/providers/Microsoft.Network/virtualNetworks/ash-workshop-vnet/subnets/ash-workshop-subnet"
+}

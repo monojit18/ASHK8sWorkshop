@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratingsweb-deploy
+  namespace: ash-workshop-dev
+spec:
+  selector:
+      matchLabels:
+        app: ratingsweb-pod
+  replicas: 1
+  template:
+      metadata:
+        labels:
+            app: ratingsweb-pod
+      spec:
+        containers:
+        - name: ratingsweb-app
+          image: azcashacr.azurecr.io/ratings-web:v1.0.0
+          imagePullPolicy: IfNotPresent          
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+          - name: API
+            value: http://ratingsapi-service.ash-workshop-dev.svc      
+          ports:
+          - containerPort: 8080
+        imagePullSecrets:
+        - name: ash-acr-secret
+        nodeSelector:
+          agentpool: ashapipool
+        
+          

@@ -1,0 +1,23 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: aksash-netpol
+  namespace: aks-ash-dev  
+spec:
+  podSelector:
+    matchLabels:
+      app: ratingsapi-pod
+  policyTypes:
+  - Ingress
+  ingress:
+  # - {}
+  - ports:
+    - protocol: TCP
+      port: 3000
+    from:
+      - namespaceSelector:
+          matchLabels:
+            name: aks-ash-dev
+      - podSelector:
+          matchLabels:
+            app: ratingsweb-pod

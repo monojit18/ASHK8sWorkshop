@@ -1,0 +1,24 @@
+controller:
+  replicaCount: 2
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "10254"
+  metrics:
+    enabled: "true"
+  nodeSelector:
+   agentpool: ashsyspool
+  defaultBackend:
+    nodeSelector:
+      agentpool: ashsyspool  
+
+
+
+
+
+
+
+
+
+
+
+

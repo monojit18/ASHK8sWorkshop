@@ -1,0 +1,12 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "workspaceResourceId": {
+        "value": "/subscriptions/61fbc32c-9633-42bf-bfb5-2a8b3aeed21d/resourceGroups/test-ash-rg/providers/Microsoft.OperationalInsights/workspaces/test-ash-lw"
+    },
+    "workspaceRegion": {
+      "value": "eastus"
+    }
+   }
+}

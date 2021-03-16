@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  labels:
+    app: nginx-deploy
+  name: nginx-deploy
+  namespace: aks-engine-workshop-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-deploy
+  strategy: {}
+  template:
+    metadata:      
+      labels:
+        app: nginx-deploy
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "250Mi"
+          limits:
+            cpu: "200m"
+            memory: "500Mi"
+        ports:
+          - containerPort: 80
+      nodeSelector:
+        agentpool: userpool1

@@ -1,0 +1,75 @@
+{
+    "apiVersion": "vlabs",    
+    "properties": {
+      "orchestratorProfile": {
+        "orchestratorType": "Kubernetes",
+        "orchestratorRelease": "1.17",
+        "orchestratorVersion": "1.17.11",
+        "kubernetesConfig": {
+          "networkPolicy": "azure",
+          "networkPlugin": "azure",
+          "kubeletConfig": {
+            "--max-pods": "40"
+          },
+          "privateCluster": {
+            "enabled": true
+          },
+          "addons": []
+        }
+      },
+      "customCloudProfile": {        
+        "portalURL": "https://portal.azs001.mtcblr.in",
+        "identitySystem": "azure_ad",
+        "dependenciesLocation": "public"
+      },
+      "featureFlags": {
+          "enableTelemetry": true
+      },
+      "masterProfile": {
+        "count": 3,
+        "dnsPrefix": "",
+        "vmSize": "Standard_DS2_v2",
+        "distro": "aks-ubuntu-16.04",
+        "availabilityProfile": "AvailabilitySet",
+        "vnetSubnetId": "",
+        "firstConsecutiveStaticIP": "12.0.1.0"
+      },
+      "agentPoolProfiles": [
+        {
+          "name": "ashsyspool",
+          "count": 2,
+          "osType": "Linux",
+          "vmSize": "Standard_DS2_v2",
+          "availabilityProfile": "AvailabilitySet",
+          "distro": "aks-ubuntu-16.04",
+          "vnetSubnetId": "",
+          "acceleratedNetworkingEnabled": false
+        },
+        {
+          "name": "ashapipool",
+          "count": 2,
+          "vmSize": "Standard_DS2_v2",
+          "availabilityProfile": "AvailabilitySet",
+          "distro": "aks-ubuntu-16.04",
+          "vnetSubnetId": "",
+          "acceleratedNetworkingEnabled": false
+        }
+      ],
+      "aadProfile": {
+        "clientAppID": "",
+        "serverAppID": "",
+        "adminGroupID": "",
+        "tenantID": ""
+      },
+      "linuxProfile": {
+        "adminUsername": "azureuser",
+        "ssh": {
+          "publicKeys": [
+            {
+              "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDT3JJ24aOj8lvmGSb86yYG9YBgyMcIitU3PM8Lmu2H/oeMXAyIMcKo353n/6fEjOwBR0hzETeoydwrtMb+KQbTnt3kcRhloPKSPpRX05W8inOi9CDEgVQRwPmXorZES/mFNtqkmcQofDIt90z8LEXih+AO278BJhwhNbHMMB0Nw4JMdD9r/VDI0sL2677yJBfnhRPDTPsFB4tDGEL9+PsftmkQQzTclEo6Mtcrs2yfT354Y3jPOxjCTDeFPgJkPMU4/ObKdNly9SFJ+3WuLsUgKKQ4FOZHqSTpl7iWxZeX6PtvQ0S7Mq9lrrkLHmPU2O0fynB9PQerSW2YPmteom0l"
+            }
+          ]
+        }
+      }
+    }
+  }
