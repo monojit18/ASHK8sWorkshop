@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ash-workshop-developer-roles
+  namespace: ash-workshop-dev
+rules:
+- apiGroups: ["", "apps", "networking.k8s.io"]
+  resources: ["configmaps", "pods", "pods/exec", "pods/log", "deployments", "services", "events", "ingresses"]
+  verbs: ["create", "delete", "deletecollection", "get", "list", "patch", "update", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ash-workshop-developer-role-bindings
+  namespace: ash-workshop-dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ash-workshop-developer-roles
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  name: 1d17d21a-86c1-48be-b09d-7398c13a85c0
+  kind: Group
+# - apiGroup: rbac.authorization.k8s.io
+#   name: <user_id>
+#   kind: User

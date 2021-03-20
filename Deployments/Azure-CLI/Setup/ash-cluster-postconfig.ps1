@@ -1,9 +1,27 @@
+# /*
+#  * 
+#  * Copyright 2021 Monojit Datta
+
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+
+#        http://www.apache.org/licenses/LICENSE-2.0
+
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+#  *
+# */
+
 param([Parameter(Mandatory=$false)] [string] $resourceGroup = "ash-workshop-rg",
       [Parameter(Mandatory=$false)] [string] $projectName = "ash-workshop",
       [Parameter(Mandatory=$false)] [string] $clusterName = "ash-workshop-cluster",
+      [Parameter(Mandatory=$false)] [string] $clusterInternalName = "<cluster_internal_name>",
       [Parameter(Mandatory=$false)] [string] $keyVaultName = "ash-workshop-kv",
-      [Parameter(Mandatory=$false)] [string] $ashVNetName = "ash-workshop-vnet",
-      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "C:\Users\azureuser\Developments\Projects\ASHK8sWorkshop\Deployments")
+      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "<base_Folder_Path>") # Till Deployments
 
 $wsIdName = $clusterName + "-ws-id"
 $wsSecretName = $clusterName + "-ws-secret"
@@ -40,7 +58,7 @@ Invoke-Expression -Command $repoAddCommand
 $repoUpdateCommand = "helm repo update"
 Invoke-Expression -Command $repoUpdateCommand
 
-$installCommand = "helm install azmoncon -n monitoring --set omsagent.secret.wsid=$wsId,omsagent.secret.key=$wsSecret,omsagent.env.clusterName=ash-workshop-cluster-60423007, microsoft/azuremonitor-containers"
+$installCommand = "helm install azmoncon -n monitoring --set omsagent.secret.wsid=$wsId,omsagent.secret.key=$wsSecret,omsagent.env.clusterName=$clusterInternalName, microsoft/azuremonitor-containers"
 Invoke-Expression -Command $installCommand
 
 # Create nginx Namespace

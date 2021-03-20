@@ -1,15 +1,33 @@
+# /*
+#  * 
+#  * Copyright 2021 Monojit Datta
+
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+
+#        http://www.apache.org/licenses/LICENSE-2.0
+
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+#  *
+# */
+
 param([Parameter(Mandatory=$false)] [string] $resourceGroup = "ash-workshop-rg",
-      [Parameter(Mandatory=$false)] [string] $location = "azs001",
+      [Parameter(Mandatory=$false)] [string] $location = "<stack_hub_location>",
       [Parameter(Mandatory=$false)] [string] $clusterName = "ash-workshop-cluster",
       [Parameter(Mandatory=$false)] [string] $keyVaultName = "ash-workshop-kv",
       [Parameter(Mandatory=$false)] [string] $ashVNetName = "ash-workshop-vnet",
       [Parameter(Mandatory=$false)] [string] $ashSubnetName = "ash-workshop-subnet",
-      [Parameter(Mandatory=$false)] [string] $clientAppID = "70dba699-0fba-4c1d-805e-213acea0a63e",
-      [Parameter(Mandatory=$false)] [string] $serverAppID = "3adf37ca-d914-43e9-9b24-8c081e0b3a08",
-      [Parameter(Mandatory=$false)] [string] $adminGroupID = "6ec3a0a8-a6c6-4cdf-a6e3-c296407a5ec1",
-      [Parameter(Mandatory=$false)] [string] $tenantID = "3851f269-b22b-4de6-97d6-aa9fe60fe301",
-      [Parameter(Mandatory=$false)] [string] $subscriptionId = "f581d2c5-6e46-41b1-a965-47588f4b857a",
-      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "C:\Users\azureuser\Developments\Projects\ASHK8sWorkshop\Deployments") # Till Deployments
+      [Parameter(Mandatory=$false)] [string] $clientAppID = "<client_App_ID>",
+      [Parameter(Mandatory=$false)] [string] $serverAppID = "<server_App_ID>",
+      [Parameter(Mandatory=$false)] [string] $adminGroupID = "<admin_Group_ID>",
+      [Parameter(Mandatory=$false)] [string] $tenantID = "<tenant_ID>",
+      [Parameter(Mandatory=$false)] [string] $subscriptionId = "<subscription_Id>",
+      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "<base_Folder_Path>") # Till Deployments
 
 $ashSPIdName = $clusterName + "-sp-id"
 $ashSPSecretName = $clusterName + "-sp-secret"

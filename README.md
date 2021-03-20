@@ -1,2 +1,0 @@
-# ASHK8sWorkshop
- 

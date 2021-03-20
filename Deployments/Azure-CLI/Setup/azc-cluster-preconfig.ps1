@@ -1,3 +1,21 @@
+# /*
+#  * 
+#  * Copyright 2021 Monojit Datta
+
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+
+#        http://www.apache.org/licenses/LICENSE-2.0
+
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+#  *
+# */
+
 param([Parameter(Mandatory=$false)] [string] $resourceGroup = "azc-workshop-rg",
       [Parameter(Mandatory=$false)] [string] $location = "eastus",
       [Parameter(Mandatory=$false)] [string] $clusterName = "ash-workshop-cluster",
@@ -8,13 +26,15 @@ param([Parameter(Mandatory=$false)] [string] $resourceGroup = "azc-workshop-rg",
       [Parameter(Mandatory=$false)] [string] $kvTemplateFileName = "azc-keyvault-deploy",
       [Parameter(Mandatory=$false)] [string] $lwTemplateFileName = "azc-lw-deploy",
       [Parameter(Mandatory=$false)] [string] $containerTemplateFileName = "containerSolution",
-      [Parameter(Mandatory=$false)] [string] $subscriptionId = "61fbc32c-9633-42bf-bfb5-2a8b3aeed21d",
-      [Parameter(Mandatory=$false)] [string] $objectId = "9bddcc88-356f-40da-a7b9-785a6a918e42",
-      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "C:\Users\azureuser\Developments\Projects\ASHK8sWorkshop\Deployments") # Till Deployments
+      [Parameter(Mandatory=$false)] [string] $subscriptionId = "<subscription_Id>",
+      [Parameter(Mandatory=$false)] [string] $objectId = "<object_Id>",
+      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "<base_Folder_Path>") # Till Deployments
 
 $azcSPDisplayName = $clusterName + "-sp"
 $azcSPIdName = $clusterName + "-sp-id"
 $azcSPSecretName = $clusterName + "-sp-secret"
+$wsIdName = $clusterName + "-ws-id"
+$wsSecretName = $clusterName + "-ws-secret"
 $templatesFolderPath = $baseFolderPath + "/Azure-CLI/Templates"
 
 # Assuming Logged In
@@ -122,6 +142,28 @@ if (!$azcSP)
     $resourceGroupRoleCommand = "az role assignment create --assignee $appId --role 'Owner' --scope '/subscriptions/$subscriptionId/resourceGroups/$resourceGroup'"
     Invoke-Expression -Command $resourceGroupRoleCommand
 
+}
+
+$workspaceIdCommand = "az monitor log-analytics workspace list --resource-group $resourceGroup --query '[0].customerId' -o json"
+$workspaceId = Invoke-Expression -Command $workspaceIdCommand
+
+$kvShowWsIdCommand = "az keyvault secret show -n $wsIdName --vault-name $keyVaultName --query 'id' -o json"
+$kvWsIdInfo = Invoke-Expression -Command $kvShowWsIdCommand
+if (!$kvWsIdInfo)
+{
+    $kvSetWorkspaceIdCommand = "az keyvault secret set --vault-name $keyVaultName --name $wsIdName --value $workspaceId"
+    Invoke-Expression -Command $kvSetWorkspaceIdCommand
+}
+
+$workspaceSecretCommand = "az monitor log-analytics workspace get-shared-keys --resource-group $resourceGroup --workspace-name $logWorkspaceName --query 'primarySharedKey' -o json"
+$workspaceSecret = Invoke-Expression -Command $workspaceSecretCommand
+
+$kvShowWsSecretCommand = "az keyvault secret show -n $wsSecretName --vault-name $keyVaultName --query 'id' -o json"
+$kvWsSecretInfo = Invoke-Expression -Command $kvShowWsSecretCommand
+if (!$kvWsSecretInfo)
+{
+    $kvSetWorkspaceSecretCommand = "az keyvault secret set --vault-name $keyVaultName --name $wsSecretName --value $workspaceSecret"
+    Invoke-Expression -Command $kvSetWorkspaceSecretCommand
 }
 
 Write-Host "------------Pre-Config----------"

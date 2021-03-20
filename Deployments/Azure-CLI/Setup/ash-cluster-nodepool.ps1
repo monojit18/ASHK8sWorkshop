@@ -1,14 +1,32 @@
+# /*
+#  * 
+#  * Copyright 2021 Monojit Datta
+
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+
+#        http://www.apache.org/licenses/LICENSE-2.0
+
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+#  *
+# */
+
 param([Parameter(Mandatory=$true)]  [string] $mode,
       [Parameter(Mandatory=$false)] [string] $resourceGroup = "ash-workshop-rg",
-      [Parameter(Mandatory=$false)] [string] $location = "azs001",
+      [Parameter(Mandatory=$false)] [string] $location = "<stack_hub_location>",
       [Parameter(Mandatory=$false)] [string] $clusterName = "ash-workshop-cluster",
-      [Parameter(Mandatory=$false)] [string] $keyVaultName = "ash-workshop-kv",      
-      [Parameter(Mandatory=$false)] [string] $subscriptionId = "f581d2c5-6e46-41b1-a965-47588f4b857a",
+      [Parameter(Mandatory=$false)] [string] $keyVaultName = "ash-workshop-kv",
+      [Parameter(Mandatory=$false)] [string] $subscriptionId = "<subscription_Id>",
       [Parameter(Mandatory=$false)] [string] $nodePoolConfigFileName = "ash-nodepool",
       [Parameter(Mandatory=$false)] [string] $nodepoolName = "ashapipool",
       [Parameter(Mandatory=$false)] [string] $newNodeCount = 3,
       [Parameter(Mandatory=$false)] [string] $apiServer = "https://12.0.1.10",
-      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "C:\Users\azureuser\Developments\Projects\ASHK8sWorkshop\Deployments") # Till Deployments
+      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "<base_Folder_Path>") # Till Deployments
 
 $aksSPIdName = $clusterName + "-sp-id"
 $aksSPSecretName = $clusterName + "-sp-secret"
@@ -58,4 +76,4 @@ elseif ($mode -eq "scale-in")
 }
 
 
-Write-Host "-----------Setup------------"
+Write-Host "-----------Nodepool-Config------------"

@@ -1,6 +1,24 @@
+# /*
+#  * 
+#  * Copyright 2021 Monojit Datta
+
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+
+#        http://www.apache.org/licenses/LICENSE-2.0
+
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+#  *
+# */
+
 param([Parameter(Mandatory=$false)] [string] $resourceGroup = "ash-workshop-rg",
-      [Parameter(Mandatory=$false)] [string] $bastionResourceGroup = "Inshorts-POC2",
-      [Parameter(Mandatory=$false)] [string] $location = "azs001",
+      [Parameter(Mandatory=$false)] [string] $bastionResourceGroup = "<bastion_Resource_Group>",
+      [Parameter(Mandatory=$false)] [string] $location = "<stack_hub_location>",
       [Parameter(Mandatory=$false)] [string] $clusterName = "ash-workshop-cluster",
       [Parameter(Mandatory=$false)] [string] $keyVaultName = "ash-workshop-kv",
       [Parameter(Mandatory=$false)] [string] $bastionVNetName = "master-hub-vnet",
@@ -10,9 +28,9 @@ param([Parameter(Mandatory=$false)] [string] $resourceGroup = "ash-workshop-rg",
       [Parameter(Mandatory=$false)] [string] $ashSubnetPrefix = "12.0.0.0/21",
       [Parameter(Mandatory=$false)] [string] $kvTemplateFileName = "ash-keyvault-deploy",
       [Parameter(Mandatory=$false)] [string] $networkTemplateFileName = "ash-network-deploy",
-      [Parameter(Mandatory=$false)] [string] $subscriptionId = "f581d2c5-6e46-41b1-a965-47588f4b857a",
-      [Parameter(Mandatory=$false)] [string] $objectId = "9bddcc88-356f-40da-a7b9-785a6a918e42",
-      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "C:\Users\azureuser\Developments\Projects\ASHK8sWorkshop\Deployments") # Till Deployments
+      [Parameter(Mandatory=$false)] [string] $subscriptionId = "<subscription_Id>",
+      [Parameter(Mandatory=$false)] [string] $objectId = "<object_Id>",
+      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "<base_Folder_Path>") # Till Deployments
 
 $aksSPDisplayName = $clusterName + "-sp"
 $templatesFolderPath = $baseFolderPath + "/Azure-CLI/Templates"
