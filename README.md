@@ -383,9 +383,9 @@ Before getting into actual action, couple of minutes to understand the folder st
           - **tenantID**
           - **adminGroupID**
         - Add **Service Principal** secrets into **KeyVault** on Stack Hub
-          - Goto KeyVault created in Azure Public Cloud - **azc-workshop-kv**
-          - Copy the Service Principal ID and Secret stored there by the PreConfig script as describe above
-          - Add these two values to the KeVault created on Stack Hub - **ash-workshop-kv**
+          - **Goto KeyVault** created in Azure Public Cloud - **azc-workshop-kv**
+          - **Copy** the **Service Principal ID** and Secret stored there by the PreConfig script as describe above
+          - **Add** these two values to the KeVault created on Stack Hub - **ash-workshop-kv**
         - Provide values for following 3 variables with are displayed as place holders
           - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
           - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
@@ -483,8 +483,8 @@ Before getting into actual action, couple of minutes to understand the folder st
 
         - This scripts deploys following resources on *Azure Stack Cloud*
 
-          - New Node pool - in this workshop it is named as - **ashiotpool**
-          - Node pool count - **3** - in this workshop
+          - **New Node pool** - in this workshop it is named as - **ashiotpool**
+          - **Node pool count** - **3** - in this workshop
 
 19. **Scale-Out** existing Node pools
 
@@ -513,12 +513,12 @@ Before getting into actual action, couple of minutes to understand the folder st
 
         - This scripts deploys following resources on *Azure Stack Cloud*
 
-          - Scale and existing Node pool - in this workshop it is named as - **ashapipool**
-          - Node pool count - **3** - in this workshop
+          - **Scale** and existing **Node pool** - in this workshop it is named as - **ashapipool**
+          - **Node pool** count - **3** - in this workshop
 
 20. **Scale-In** existing Node pools
 
-    - **Scale_In** is actually not a deployment; behind the scene, AKS-engine deletes Nodes and adjusts the Node pool count to the desired level. Although this option is Not recommended and suggestion is to rely on **Cluster AutoScaler** (a.k.a *Node AutoScaler*) - but this is not available now in *Azure Stack Hub*
+    - **Scale-In** is actually not a deployment; behind the scene, AKS-engine deletes Nodes and adjusts the Node pool count to the desired level. Although this option is Not recommended and suggestion is to rely on **Cluster AutoScaler** (a.k.a *Node AutoScaler*) - but this is not available now in *Azure Stack Hub*
 
     - Run ***Deployments/Azure-CLI/Setup/ash-cluster-nodepool.ps1***
 
@@ -545,8 +545,8 @@ Before getting into actual action, couple of minutes to understand the folder st
 
         - This scripts deploys following resources on *Azure Stack Cloud*
 
-          - Scale and existing Node pool - in this workshop it is named as - **ashapipool**
-          - Node pool count - **2** - in this workshop
+          - **Scale** and existing **Node pool** - in this workshop it is named as - **ashapipool**
+          - **Node pool** count - **2** - in this workshop
 
 21. **Deploy** Ingress object
 
@@ -691,6 +691,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
 ### References
 
+- **Source** - https://github.com/monojit18/ASHK8sWorkshop.git
 - **Azure Container Registry** - https://docs.microsoft.com/en-us/azure/container-registry/
 - **Docker Private Registry** - https://docs.docker.com/registry/deploying/
 - **Azure Stack Hub** - 
