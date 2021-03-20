@@ -251,7 +251,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
           - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
 
-          - **objectId** - Azure AD objectId of the logged-in user/service principal; this can be found on the -
+          - **objectId** - Azure AD objectId of the logged-in user/service principal; this can be found on the-
 
             ***Azure AD page-> Select User or Service Principal (as the case may be)-> Look at Overview page***
 
@@ -319,7 +319,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
           - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
 
-          - **objectId** - Azure AD objectId of the logged-in user/service principal; this can be found on the -
+          - **objectId** - Azure AD objectId of the logged-in user/service principal; this can be found on the-
 
             ***Azure AD page-> Select User or Service Principal (as the case may be)-> Look at Overview page***
 
