@@ -40,7 +40,7 @@ The purpose of this workshop would be to:
 
 ## Reference Architecture
 
-
+![ASH-Ref-Architecture-v1.0-Stack-Hub-Ref-Arch](./Assets/ASH-Ref-Architecture-v1.0-Stack-Hub-Ref-Arch.png)
 
 ## Action
 
