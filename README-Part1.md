@@ -207,7 +207,7 @@ Before getting into actual action, couple of minutes to understand the folder st
    - Preparing a *Docker Registry* is easy - https://docs.docker.com/registry/deploying/
    - This can be setup on the same Jump Server Or on any other machine
 
-9. **Clone** the repo - (<>) into your local folder somewhere on the VM. Open and browse the files in VS Code editor and have a quick look; check the folder structure as described in the section [above](#deployments)
+9. **Clone** the repo — https://github.com/monojit18/ASHK8sWorkshop.git into your local folder somewhere on the VM. Open and browse the files in VS Code editor and have a quick look; check the folder structure as described in the section [above](#deployments)
 
 10. The **Jump Server** is now ready to be used for subsequent deployments
 
@@ -253,7 +253,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
           - **objectId** - Azure AD objectId of the logged-in user/service principal; this can be found on the -
 
-            ***Azure AD page -> Select User or Service Principal (as the case may be) -> Look at Overview page***
+            ***Azure AD page-> Select User or Service Principal (as the case may be)-> Look at Overview page***
 
           - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
 
@@ -321,9 +321,9 @@ Before getting into actual action, couple of minutes to understand the folder st
 
           - **objectId** - Azure AD objectId of the logged-in user/service principal; this can be found on the -
 
-            ***Azure AD page -> Select User or Service Principal (as the case may be) -> Look at Overview page***
+            ***Azure AD page-> Select User or Service Principal (as the case may be)-> Look at Overview page***
 
-          - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
+          - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like !! **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
 
         - Following Values should **<u>NOT</u>** be changed. These are the file names of template files to be used by the script(s) and filenames have already been set. Unless you change those filenames in your local repo, no need to play around with those name!!
 
@@ -366,7 +366,7 @@ Before getting into actual action, couple of minutes to understand the folder st
     - Install **AKS-Engine** for Stack Hub
 
       - Follow this link to choose appropriate version to be installed - https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#aks-engine-versions
-      - This workshop uses - **v0.55.4** - https://github.com/Azure/aks-engine/releases/tag/v0.55.4
+      - This workshop uses — **v0.55.4** — https://github.com/Azure/aks-engine/releases/tag/v0.55.4
       - Once installed, you are ready to run the following script to create the K8s cluster
 
     - Run ***Deployments/Azure-CLI/Setup/ash-cluster-setup.ps1***
@@ -683,11 +683,18 @@ Before getting into actual action, couple of minutes to understand the folder st
 
         - This scripts does following resources on *Azure Stack Cloud*
 
-          - Delete the peering between Jump Server Subnet (i.e. *master-hub-vnet*) and the K8s Cluster Subnet (i.e. *ash-workshop-vnet*)
+          - **Delete** the peering between Jump Server Subnet (i.e. *master-hub-vnet*) and the K8s Cluster Subnet (i.e. *ash-workshop-vnet*)
 
-          - Delete the resource group on Stack Hub containing all the resources (i.e. *ash-workshop-rg*)
+          - https://docs.microsoft.com/en-us/azure-stack/operator/?view=azs-2008 the resource group on Stack Hub containing all the resources (i.e. *ash-workshop-rg*)
 
             
 
 ### References
 
+- **Azure Container Registry** - https://docs.microsoft.com/en-us/azure/container-registry/
+- **Docker Private Registry** - https://docs.docker.com/registry/deploying/
+- **Azure Stack Hub** - 
+  - https://docs.microsoft.com/en-us/azure-stack/user/?view=azs-2008
+  - https://docs.microsoft.com/en-us/azure-stack/operator/?view=azs-2008
+- **AKS-Engine Docs** - https://github.com/Azure/aks-engine/tree/master/docs
+- **AKS-Engine on Stack Hub** - https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md
