@@ -54,7 +54,7 @@ The purpose of this workshop would be to:
 
 ## Reference Architecture
 
-
+![ASH-Ref-Architecture-v1.0-Stack-Hub-Ref-Arch](./Assets/ASH-Ref-Architecture-v1.0-Stack-Hub-Ref-Arch.png)
 
 ## Action
 
@@ -112,7 +112,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
 ## Anatomy of the Approach
 
-
+![ASH-Ref-Architecture-v1.0-ASH-Anatomy](./Assets/ASH-Ref-Architecture-v1.0-ASH-Anatomy.png)
 
 ### Step-By-Step
 
