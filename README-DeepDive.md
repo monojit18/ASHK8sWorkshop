@@ -353,6 +353,10 @@ Before getting into actual action, couple of minutes to understand the folder st
 
    ![ASH-Ref-Architecture-v1.0-ASH-Anatomy-Step167](./Assets/ASH-Ref-Architecture-v1.0-ASH-Anatomy-Step167.png)
 
+   
+
+   
+
    ![ASH-Ref-Architecture-v1.0-ASH-Anatomy-Step12345](./Assets/ASH-Ref-Architecture-v1.0-ASH-Anatomy-Step12345.png)
 
    - Set cloud option to *Azure Stack User*
