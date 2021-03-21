@@ -400,7 +400,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
       ***Deployments/Azure-CLI/Templates/AKSEngine/Output/ClusterInfo/kubeconfig*** in the Jump Server VM
 
-    - From this workshop, we have created the Jump Server which is a Windows 2019 DC VM. So, we should go to the User's Home directory and create a .**kube**
+    - From this workshop, we have created the Jump Server which is a **Windows 2019 DC VM**. So, we should go to the User's Home directory and create a .**kube**
 
     - Copy this file to .**kube** folder just created above
 
@@ -464,25 +464,26 @@ Before getting into actual action, couple of minutes to understand the folder st
 
         ```bash
         ./ash-cluster-nodepool.ps1 --mode "add" --resourceGroup "ash-workshop-rg"
-        --location "<stack_hub_location>" --clusterName "ash-workshop-cluster" --keyVaultName "ash-workshop-kv" --subscriptionId "<subscription_Id>" --nodePoolConfigFileName "ash-nodepool" --baseFolderPath "<base_Folder_Path>"
-        ```
-
-      - ***Note***
-
-        - The values are provided as example only. They can be used as-is as long resources with same name does not exist!
-
-        - Provide values for following 2 variables with are displayed as place holders
-
-          - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
-
-          - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
-
-        - Following Values should **<u>NOT</u>** be changed. These are the file names of template files to be used by the script(s) and filenames have already been set. Unless you change those filenames in your local repo, no need to play around with those name!!
-
-          - **nodePoolConfigFileName**
-
-        - This scripts deploys following resources on *Azure Stack Cloud*
-
+        --location "<stack_hub_location>" --clusterName "ash-workshop-cluster" --keyVaultName "ash-workshop-kv" --subscriptionId "<subscription_Id>" --nodePoolConfigFileName "ash-nodepool" 
+        --baseFolderPath "<base_Folder_Path>"
+      ```
+      
+    - ***Note***
+      
+      - The values are provided as example only. They can be used as-is as long resources with same name does not exist!
+      
+      - Provide values for following 2 variables with are displayed as place holders
+      
+        - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
+      
+        - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
+      
+      - Following Values should **<u>NOT</u>** be changed. These are the file names of template files to be used by the script(s) and filenames have already been set. Unless you change those filenames in your local repo, no need to play around with those name!!
+      
+        - **nodePoolConfigFileName**
+      
+      - This scripts deploys following resources on *Azure Stack Cloud*
+      
           - **New Node pool** - in this workshop it is named as - **ashiotpool**
           - **Node pool count** - **3** - in this workshop
 
@@ -494,25 +495,26 @@ Before getting into actual action, couple of minutes to understand the folder st
 
         ```bash
         ./ash-cluster-nodepool.ps1 --mode "scale" --resourceGroup "ash-workshop-rg"
-        --location "<stack_hub_location>" --clusterName "ash-workshop-cluster" --keyVaultName "ash-workshop-kv" --subscriptionId "<subscription_Id>" --nodePoolConfigFileName "ash-nodepool" --nodepoolName "ashapipool" --newNodeCount 3 --baseFolderPath "<base_Folder_Path>"
-        ```
-
-      - ***Note***
-
-        - The values are provided as example only. They can be used as-is as long resources with same name does not exist!
-
-        - Provide values for following 2 variables with are displayed as place holders
-
-          - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
-
-          - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
-
-        - Following Values should **<u>NOT</u>** be changed. These are the file names of template files to be used by the script(s) and filenames have already been set. Unless you change those filenames in your local repo, no need to play around with those name!!
-
-          - **nodePoolConfigFileName**
-
-        - This scripts deploys following resources on *Azure Stack Cloud*
-
+        --location "<stack_hub_location>" --clusterName "ash-workshop-cluster" --keyVaultName "ash-workshop-kv" --subscriptionId "<subscription_Id>" --nodePoolConfigFileName "ash-nodepool" 
+        --nodepoolName "ashapipool" --newNodeCount 3 --baseFolderPath "<base_Folder_Path>"
+      ```
+      
+    - ***Note***
+      
+      - The values are provided as example only. They can be used as-is as long resources with same name does not exist!
+      
+      - Provide values for following 2 variables with are displayed as place holders
+      
+        - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
+      
+        - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
+      
+      - Following Values should **<u>NOT</u>** be changed. These are the file names of template files to be used by the script(s) and filenames have already been set. Unless you change those filenames in your local repo, no need to play around with those name!!
+      
+        - **nodePoolConfigFileName**
+      
+      - This scripts deploys following resources on *Azure Stack Cloud*
+      
           - **Scale** and existing **Node pool** - in this workshop it is named as - **ashapipool**
           - **Node pool** count - **3** - in this workshop
 
@@ -666,7 +668,7 @@ Before getting into actual action, couple of minutes to understand the folder st
       - ***Example***
 
         ```bash
-        ./ash-cluster-remove.ps1 --resourceGroup = "ash-workshop-rg"
+        ./ash-cluster-remove.ps1 --resourceGroup "ash-workshop-rg"
         --bastionResourceGroup "<bastion_Resource_Group>" --ashVNetName "ash-workshop-vnet"
         --bastionVNetName "master-hub-vnet" --subscriptionId "<subscription_Id>"
         ```
