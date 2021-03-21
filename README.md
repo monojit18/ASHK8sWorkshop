@@ -386,7 +386,7 @@ Before getting into actual action, couple of minutes to understand the folder st
           - **Goto KeyVault** created in Azure Public Cloud - **azc-workshop-kv**
           - **Copy** the **Service Principal ID** and Secret stored there by the PreConfig script as describe above
           - **Add** these two values to the KeVault created on Stack Hub - **ash-workshop-kv**
-        - Provide values for following 3 variables with are displayed as place holders
+        - Provide values for following 2 variables with are displayed as place holders
           - **subscriptionId** - The *SubscriptionId* of the logged-in user/service principal. This workshop used a Microsoft userid to Login and run through this - *<ms-alias>@microsoft.com*
           - **baseFolderPath** - This is path of the Deployments folder in the local repo. Script would actually be able to flow through the folder hierarchy and run other necessary scripts. So as an example this will be the complete physical path like - **/Users/<user_name>/../ASHK8sWorkshop/Deployments**
 
