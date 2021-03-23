@@ -712,6 +712,7 @@ Before getting into actual action, couple of minutes to understand the folder st
 
 ### References
 
+- **Source** - https://github.com/monojit18/ASHK8sWorkshop.git
 - **Azure Container Registry** - https://docs.microsoft.com/en-us/azure/container-registry/
 - **Docker Private Registry** - https://docs.docker.com/registry/deploying/
 - **Azure Stack Hub** - 
