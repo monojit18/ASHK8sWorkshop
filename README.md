@@ -466,7 +466,7 @@ Before getting into actual action, couple of minutes to understand the folder st
         ./ash-cluster-nodepool.ps1 --mode "add" --resourceGroup "ash-workshop-rg"
         --location "<stack_hub_location>" --clusterName "ash-workshop-cluster" --keyVaultName "ash-workshop-kv" --subscriptionId "<subscription_Id>" --nodePoolConfigFileName "ash-nodepool" 
         --baseFolderPath "<base_Folder_Path>"
-      ```
+        ```
       
     - ***Note***
       
@@ -497,7 +497,7 @@ Before getting into actual action, couple of minutes to understand the folder st
         ./ash-cluster-nodepool.ps1 --mode "scale" --resourceGroup "ash-workshop-rg"
         --location "<stack_hub_location>" --clusterName "ash-workshop-cluster" --keyVaultName "ash-workshop-kv" --subscriptionId "<subscription_Id>" --nodePoolConfigFileName "ash-nodepool" 
         --nodepoolName "ashapipool" --newNodeCount 3 --baseFolderPath "<base_Folder_Path>"
-      ```
+        ```
       
     - ***Note***
       
